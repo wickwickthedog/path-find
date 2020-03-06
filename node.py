@@ -8,6 +8,6 @@ class Node:
 		self.neighbors = []
 		self.weight = 1
 
-	def display(self, colour):
-		pygame.draw.rect(SCREEN, colour, (self.x * WIDTH, self.y * HEIGHT, WIDTH, HEIGHT))
+	def display(self, colour, n):
+		pygame.draw.rect(SCREEN, colour, (self.x * WIDTH, self.y * HEIGHT, WIDTH, HEIGHT), n)
 		pygame.display.update()
