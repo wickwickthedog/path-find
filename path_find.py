@@ -3,7 +3,7 @@ import pygame
 from node import Node
 from constants import *
 
-# init grid columns
+# init grids
 grid = [0 for i in range(BOARD_WIDTH)]
 
 for i in range(BOARD_WIDTH):
@@ -16,7 +16,11 @@ for i in range(BOARD_WIDTH):
 
 for i in range(BOARD_WIDTH):
 	for j in range(BOARD_HEIGHT):
+		grid[i][j].setNeigbhors(grid)
 		grid[i][j].display(WHITE, 1)
+
+
+
 
 #### functions
 def getStartNode():
@@ -31,8 +35,19 @@ def onClick():
 	gui.destroy()
 
 def pathFind():
-	start.display(BLUE, 0)
-	end.display(BLUE, 0)
+	# start.display(BLUE, 0)
+	# end.display(BLUE, 0)
+	if len(toVisit) > 0:
+		i = 0
+
+		curr = toVisit[i]
+		if curr == end:
+
+		toVisit.pop(i)
+		toEnd.append(curr)
+
+		neighbors = curr.neighbors
+
 	
 
 
@@ -58,8 +73,8 @@ submit.grid(row=2, column=1, pady=3)
 # FIXME 
 start = grid[10][25]
 end = grid[40][25]
-# start.display(BLUE, 0)
-# end.display(BLUE, 0)
+start.display(BLUE, 0)
+end.display(BLUE, 0)
 
 gui.update()
 gui.mainloop()
